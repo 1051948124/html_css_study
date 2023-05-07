@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学成在线</title>
+    <!-- 作者：伪码农3306号 -->
+    <!-- 时间：2023-05-07 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f3f5f7;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .w {
+            width: 1200px;
+            margin: auto;
+        }
+
+        .hd {
+            /* background-color: pink; */
+            margin: 30px auto;
+            overflow: hidden;
+        }
+
+        .header {
+            float: left;
+        }
+
+        .nav {
+            float: left;
+            margin-left: 70px;
+            /* background-color: skyblue; */
+        }
+
+        .nav ul li {
+            float: left;
+            display: block;
+            margin-right: 27px;
+
+        }
+
+        .nav ul li a {
+            font-size: 18px;
+            line-height: 38px;
+            padding: 0 8px;
+            padding-bottom: 11px;
+        }
+
+        .nav ul li a:hover {
+            border-bottom: 2px solid #00a4ff;
+        }
+
+        .search {
+            float: left;
+        }
+
+        .search input {
+            float: left;
+            line-height: 38px;
+            width: 339px;
+            margin-left: 94px;
+            border: 1px solid #00a4ff;
+            border-right: 0;
+            padding-left: 21px;
+            color: #bfbfbf;
+        }
+
+        .search button {
+            float: left;
+            height: 38px;
+            width: 50px;
+            border: 0;
+            background-color: #00a4ff;
+        }
+
+        .user {
+            float: left;
+            margin-left: 32px;
+            color: #7e7e7f;
+        }
+
+        /* 大图 */
+        .datu {
+            height: 420px;
+            width: 100%;
+            background-color: #1c036c;
+        }
+
+        .datu .zhong {
+            /* background-color: pink; */
+            height: 420px;
+            background-image: url(./banner.png);
+            background-repeat: no-repeat;
+        }
+
+        .datu .zhong .course {
+            overflow: hidden;
+            float: left;
+            background-color: rgba(0, 0, 0, 0.4);
+            width: 190px;
+            height: 420px;
+        }
+
+        .datu .zhong .course ul {
+            float: left;
+            padding-top: 12px;
+        }
+
+        .datu .zhong .course .ul_right {
+            float: right;
+            margin-right: 21px;
+        }
+
+        .datu .zhong .course ul li {
+            padding-bottom: 25px;
+            padding-left: 21px;
+        }
+
+        .datu .zhong .course ul li a {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        /* 课程表 */
+        .school_table {
+            float: right;
+            width: 228px;
+            height: 300px;
+            margin-top: 60px;
+            background-color: #fff;
+            /* background-color: pink; */
+        }
+
+        .school_table>p {
+            width: 192px;
+            margin-left: 19px;
+            margin-top: 13px;
+            padding-bottom: 11px;
+            border-bottom: 1px solid #efefef;
+        }
+
+        .title {
+            width: 100%;
+            height: 48px;
+            background-color: #b9dcf0;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bolder;
+            line-height: 48px;
+            text-align: center;
+            margin-bottom: 7px;
+        }
+
+        .school_table em {
+            font-style: normal;
+            font-size: 14px;
+            color: #a5a5a5;
+
+        }
+
+        .school_table button {
+            width: 200px;
+            height: 40px;
+            color: #00a4ff;
+            font-weight: bolder;
+            letter-spacing: 2px;
+            border: 1px solid #00a4ff;
+            background-color: #fff;
+            margin-top: 6px;
+            margin-left: 14px;
+        }
+
+        .recommend_one {
+            overflow: hidden;
+            height: 60px;
+            background-color: #fff;
+            margin-top: 8px;
+            box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.3);
+        }
+
+        .recommend_one dl {
+            margin-top: 21px;
+        }
+
+        .recommend_one dl dt,
+        .recommend_one dl dd {
+            float: left;
+            /* line-height: 60px; */
+        }
+
+        .recommend_one dl dt a {
+            color: #00a4ff;
+            margin: 0 34px;
+            font-weight: bolder;
+        }
+
+        .recommend_one dl dd {
+            border-left: 1px solid #bfbfbf;
+            padding: 0 35px;
+        }
+
+        .recommend_one p a {
+            float: right;
+            margin-right: 26px;
+            color: #00a4ff;
+        }
+
+        /* 精品推荐2-标题 */
+        .recommend_two {
+            overflow: hidden;
+            margin-top: 37px;
+            margin-bottom: 21px;
+        }
+
+        .recommend_two .left {
+            float: left;
+            font-weight: normal;
+            font-size: 20px;
+        }
+
+        .recommend_two .right {
+            float: right;
+            font-size: 12px;
+            margin-top: 8px;
+            margin-right: 35px;
+        }
+
+        .core {
+            overflow: hidden;
+            /* background-color: pink; */
+        }
+
+        .core ul li {
+            float: left;
+            width: 228px;
+            height: 270px;
+            background-color: #fff;
+            margin: 0 15px 15px 0;
+        }
+
+        .core ul li img {
+            width: 100%;
+        }
+
+        .core ul li h3 {
+            margin-top: 25px;
+            font-size: 14px;
+            width: 184px;
+            margin-left: 24px;
+            font-weight: normal;
+        }
+
+        .core ul li p {
+            margin-top: 20px;
+            font-size: 12px;
+            margin-left: 24px;
+            color: #999;
+        }
+
+        .core ul li p em {
+            font-style: normal;
+            color: #ff7c2d;
+        }
+
+        .core .five,
+        .core .ten {
+            margin-right: 0;
+        }
+
+        .programme {
+            overflow: hidden;
+            margin-top: 23px;
+            margin-bottom: 21px;
+            /* background-color: skyblue; */
+        }
+
+        .programme p {
+            float: left;
+            font-size: 20px;
+        }
+
+        .programme ul {
+            float: left;
+            margin-left: 352px;
+            margin-top: 5px;
+        }
+
+        .programme ul li {
+            float: left;
+            font-size: 16px;
+            padding-right: 71px;
+            color: #868686;
+        }
+
+        .programme .skyblue {
+            color: #00a4ff;
+        }
+
+        .programme .all {
+            float: right;
+            font-size: 12px;
+            margin-right: 31px;
+            margin-top: 5px;
+            color: #a5a5a5;
+        }
+
+        .programme_main {
+            overflow: hidden;
+            /* background-color: pink; */
+            margin-top: 22px;
+            margin-bottom: 38px;
+        }
+
+        .bc_left {
+            float: left;
+            width: 228px;
+            height: 392px;
+            /* background-color: skyblue; */
+            margin-right: 15px;
+        }
+
+        .bc_right {
+            float: left;
+            width: 957px;
+            height: 392px;
+            /* background-color: #b9dcf0; */
+        }
+
+        .right_top {
+            margin-bottom: 23px;
+        }
+
+        .right_bottom {
+            /* background-color: pink; */
+            height: 270px;
+        }
+
+        .right_bottom div {
+            float: left;
+            width: 228px;
+            height: 270px;
+            /* background-color: skyblue; */
+            background-color: #fff;
+            margin-right: 15px;
+        }
+
+        .right_bottom div a {
+            overflow: hidden;
+
+        }
+
+        .right_bottom div a img {
+            width: 100%;
+            float: left;
+        }
+
+        .right_bottom div a h3 {
+            font-size: 14px;
+            font-weight: normal;
+            color: #050505;
+            margin-top: 179px;
+            margin-left: 24px;
+            height: 32px;
+        }
+
+        .right_bottom div a p {
+            font-size: 12px;
+            color: #606060;
+            margin-top: 20px;
+            margin-left: 24px;
+        }
+
+        .right_bottom div a p em {
+            font-style: normal;
+            color: #ff7c2d;
+        }
+
+        .right_bottom .end {
+            margin-right: 0;
+        }
+
+        .machine_learning {
+            height: 270px;
+            margin-bottom: 40px;
+            /* background-color: pink; */
+        }
+
+        .machine_learning div {
+            float: left;
+            width: 228px;
+            height: 270px;
+            background-color: #fff;
+            margin-right: 15px;
+        }
+
+        .machine_learning div a img {
+            width: 100%;
+        }
+
+        .machine_learning div a h3 {
+            font-size: 14px;
+            font-weight: normal;
+            color: #050505;
+            margin-top: 25px;
+            margin-left: 24px;
+            height: 32px;
+        }
+
+        .machine_learning div a p {
+            font-size: 12px;
+            color: #606060;
+            margin-top: 20px;
+            margin-left: 24px;
+        }
+
+        .machine_learning div a p em {
+            font-style: normal;
+            color: #ff7c2d;
+        }
+
+        .machine_learning .machine_learning_end {
+            margin-right: 0;
+        }
+
+        .footer {
+            overflow: hidden;
+            height: 417px;
+            /* background-color: pink; */
+            background-color: #fff;
+        }
+
+        .footer_left {
+            float: left;
+        }
+
+        .footer_left img {
+            margin: 33px 0 26px 21px;
+        }
+
+        .footer_left p {
+            font-size: 12px;
+        }
+
+        .footer_left button {
+            width: 120px;
+            height: 36px;
+            border: 1px solid #00a4ff;
+            background-color: #fff;
+            margin-top: 15px;
+        }
+
+        .footer_left button a {
+            color: #00a4ff;
+            font-size: 16px;
+        }
+
+        .footer_right {
+            overflow: hidden;
+            float: left;
+            margin-left: 219px;
+            margin-top: 33px;
+        }
+
+        .footer_right dl {
+            float: left;
+            margin-right: 133px;
+        }
+
+        .footer_right .zh {
+            margin-right: 0;
+        }
+
+        .footer_right dl dt {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer_right dl dd {
+            font-size: 12px;
+            margin-bottom: 9px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hd w">
+        <!-- logo部分 -->
+        <div class="header"><img src="logo.png" alt="">
+        </div>
+        <!-- 导航栏 -->
+        <div class="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">课程</a></li>
+                <li><a href="#">职业规划</a></li>
+            </ul>
+        </div>
+        <!-- 搜索栏 -->
+        <div class="search">
+            <input type="text" value="输入关键词">
+            <button><img src="fa-search.png" alt=""></button>
+        </div>
+        <!-- 用户信息 -->
+        <div class="user">
+            <img src="user_head.png" alt="">
+            qq-leishui
+        </div>
+    </div>
+    <!-- 大图 -->
+    <div class="datu">
+        <!-- 中心信息 -->
+        <div class="zhong w">
+            <!-- 课程明细背景 -->
+            <div class="course">
+                <ul>
+                    <li><a href="#">前端开发</a></li>
+                    <li><a href="#">后端开发</a></li>
+                    <li><a href="#">移动开发</a></li>
+                    <li><a href="#">人工智能</a></li>
+                    <li><a href="#">商业预测</a></li>
+                    <li><a href="#">云计算&大数据</a></li>
+                    <li><a href="#">运维&测试</a></li>
+                    <li><a href="#">UI设计</a></li>
+                    <li><a href="#">产品</a></li>
+                </ul>
+                <ul class="ul_right">
+                    <li><a href="#">&gt;</a></li>
+                    <li><a href="#">&gt;</a></li>
+                    <li><a href="#">&gt;</a></li>
+                    <li><a href="#">&gt;</a></li>
+                    <li><a href="#">&gt;</a></li>
+                    <li><a href="#">&gt;</a></li>
+                    <li><a href="#">&gt;</a></li>
+                    <li><a href="#">&gt;</a></li>
+                    <li><a href="#">&gt;</a></li>
+                </ul>
+            </div>
+            <!-- 课程表 -->
+            <div class="school_table">
+                <div class="title">
+                    我的课程表
+                </div>
+                <p>继续学习 程序语言设计<br><em>正在学习-使用对象</em></p>
+                <p>继续学习 程序语言设计<br><em>正在学习-使用对象</em></p>
+                <p>继续学习 程序语言设计<br><em>正在学习-使用对象</em></p>
+                <button>全部课程</button>
+            </div>
+        </div>
+    </div>
+    <!-- 精品推荐 -->
+    <div class="recommend_one w">
+        <!-- 左侧 -->
+        <dl>
+            <dt><a href="#">精品推荐</a></dt>
+            <dd><a href="#">JQuery</a></dd>
+            <dd><a href="#">Spark</a></dd>
+            <dd><a href="#">MySQL</a></dd>
+            <dd><a href="#">JavaWeb</a></dd>
+            <dd><a href="#">MySQL</a></dd>
+            <dd><a href="#">JavaWeb</a></dd>
+        </dl>
+        <!-- 右侧 -->
+        <p><a href="#">修改兴趣</a></p>
+    </div>
+    <!-- 精品推荐2-标题 -->
+    <div class="recommend_two w">
+        <h3 class="left">精品推荐</h3>
+        <p class="right"><a href="#">查看全部</a></p>
+    </div>
+    <!-- 核心 -->
+    <div class="core w">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="01.png" alt="">
+                    <h3>Think PHP 5.0 博客系统实战项目演练</h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="02.png" alt="">
+                    <h3>Android 网络图片加载框架详解 </h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="03.png" alt="">
+                    <h3>Angular 2 最新框架+主流技术+项目实战</h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="04.png" alt="">
+                    <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+            <li class="five">
+                <a href="#">
+                    <img src="04.png" alt="">
+                    <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="01.png" alt="">
+                    <h3>Think PHP 5.0 博客系统实战项目演练</h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="02.png" alt="">
+                    <h3>Android 网络图片加载框架详解 </h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+            <li><a href="#">
+                    <img src="03.png" alt="">
+                    <h3>Angular 2 最新框架+主流技术+项目实战</h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="04.png" alt="">
+                    <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+            <li class="ten">
+                <a href="#">
+                    <img src="04.png" alt="">
+                    <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                    <p><em>高级</em> • 1125人在学习</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 编程入门 -->
+    <div class="programme w">
+        <p>编程入门</p>
+        <ul>
+            <li class="skyblue">热门</li>
+            <li>初级</li>
+            <li>中级</li>
+            <li>高级</li>
+        </ul>
+        <p class="all">查看全部</p>
+    </div>
+    <!-- 编程入门核心 -->
+    <div class="programme_main w">
+        <div class="bc_left">
+            <img src="left.png" alt="">
+        </div>
+        <div class="bc_right">
+            <div class="right_top">
+                <img src="python.png" alt="">
+            </div>
+            <div class="right_bottom">
+                <div>
+                    <a href="#">
+                        <img src="ugui.png" alt="">
+                        <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                        <p><em>高级</em> • 1125人在学习</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="kami2.png" alt="">
+                        <h3>Kami2首页界面切换效果</h3>
+                        <p><em>高级</em> • 1125人在学习</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="unity.png" alt="">
+                        <h3>Unity Profiler入门</h3>
+                        <p><em>高级</em> • 1125人在学习</p>
+                    </a>
+                </div>
+                <div class="end">
+                    <a href="#">
+                        <img src="cocos.png" alt="">
+                        <h3>ACocos2d-x 引擎源码中的纹理优化</h3>
+                        <p><em>高级</em> • 1125人在学习</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 数据分析师 -->
+    <div class="programme w">
+        <p>数据分析师</p>
+        <ul>
+            <li class="skyblue">热门</li>
+            <li>初级</li>
+            <li>中级</li>
+            <li>高级</li>
+        </ul>
+        <p class="all">查看全部</p>
+    </div>
+    <!-- 数据分析师核心 -->
+    <div class="programme_main w">
+        <div class="bc_left">
+            <img src="php.png" alt="">
+        </div>
+        <div class="bc_right">
+            <div class="right_top">
+                <img src="python2.png" alt="">
+            </div>
+            <div class="right_bottom">
+                <div>
+                    <a href="#">
+                        <img src="kami2.png" alt="">
+                        <h3>Kami2首页界面切换效果</h3>
+                        <p><em>高级</em> • 1125人在学习</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="ugui.png" alt="">
+                        <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                        <p><em>高级</em> • 1125人在学习</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="cocos.png" alt="">
+                        <h3>ACocos2d-x 引擎源码中的纹理优化</h3>
+                        <p><em>高级</em> • 1125人在学习</p>
+                    </a>
+                </div>
+                <div class="end">
+                    <a href="#">
+                        <img src="unity.png" alt="">
+                        <h3>Unity Profiler入门</h3>
+                        <p><em>高级</em> • 1125人在学习</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 机器学习工程师 -->
+    <div class="programme w">
+        <p>机器学习工程师</p>
+        <ul>
+            <li class="skyblue">热门</li>
+            <li>初级</li>
+            <li>中级</li>
+            <li>高级</li>
+        </ul>
+        <p class="all">查看全部</p>
+    </div>
+    <!-- 机器学习工程师核心 -->
+    <div class="machine_learning w">
+        <div>
+            <a href="#">
+                <img src="ugui.png" alt="">
+                <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                <p><em>高级</em> • 125人在学习</p>
+            </a>
+        </div>
+
+        <div class="end">
+            <a href="#">
+                <img src="cocos.png" alt="">
+                <h3>ACocos2d-x 引擎源码中的纹理优化</h3>
+                <p><em>高级</em> • 11250人在学习</p>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <img src="unity.png" alt="">
+                <h3>Unity Profiler入门</h3>
+                <p><em>中级</em> • 178人在学习</p>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <img src="ms.png" alt="">
+                <h3>微软人工智能-数据分析平台</h3>
+                <p><em>高级</em> • 5639人在学习</p>
+            </a>
+        </div>
+        <div class="machine_learning_end">
+            <a href="#">
+                <img src="kami2.png" alt="">
+                <h3>Kami2首页界面切换效果</h3>
+                <p><em>高级</em> • 1125人在学习</p>
+            </a>
+        </div>
+    </div>
+    <!-- 前端开发工程师，类名与机器学习相同 -->
+    <div class="programme w">
+        <p>前端开发工程师</p>
+        <ul>
+            <li class="skyblue">热门</li>
+            <li>初级</li>
+            <li>中级</li>
+            <li>高级</li>
+        </ul>
+        <p class="all">查看全部</p>
+    </div>
+    <!-- 前端开发工程师核心，类名与机器学习相同 -->
+    <div class="machine_learning w">
+        <div>
+            <a href="#">
+                <img src="ms.png" alt="">
+                <h3>微软人工智能-数据分析平台</h3>
+                <p><em>高级</em> • 1125人在学习</p>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <img src="unity.png" alt="">
+                <h3>Unity Profiler入门</h3>
+                <p><em>高级</em> • 1125人在学习</p>
+            </a>
+        </div>
+        <div class="end">
+            <a href="#">
+                <img src="cocos.png" alt="">
+                <h3>ACocos2d-x 引擎源码中的纹理优化</h3>
+                <p><em>高级</em> • 1125人在学习</p>
+            </a>
+        </div>
+
+        <div>
+            <a href="#">
+                <img src="kami2.png" alt="">
+                <h3>Kami2首页界面切换效果</h3>
+                <p><em>高级</em> • 1125人在学习</p>
+            </a>
+        </div>
+        <div class="machine_learning_end">
+            <a href="#">
+                <img src="ugui.png" alt="">
+                <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                <p><em>高级</em> • 1125人在学习</p>
+            </a>
+        </div>
+    </div>
+    <!-- footer部分 -->
+    <div class="footer">
+        <div class="w">
+            <div class="footer_left">
+                <img src="logo.png" alt="">
+                <p>学成在线致力于普及中国最好的教育它与中国一流大学和机构合作提供在线课程。
+                    <br>© 2017年XTCG Inc.保留所有权利。-沪ICP备15025210号
+                </p>
+                <button><a href="#">下载APP</a></button>
+            </div>
+            <div class="footer_right">
+                <dl>
+                    <dt>关于学成网</dt>
+                    <dd>关于</dd>
+                    <dd>管理团队</dd>
+                    <dd>工作机会</dd>
+                    <dd>客户服务</dd>
+                    <dd>帮助</dd>
+                </dl>
+                <dl>
+                    <dt>新手指南</dt>
+                    <dd>如何注册</dd>
+                    <dd>如何选课</dd>
+                    <dd>如何拿到毕业证</dd>
+                    <dd>学分是什么</dd>
+                    <dd>考试未通过怎么办</dd>
+                </dl>
+                <dl class="zh">
+                    <dt>合作伙伴</dt>
+                    <dd>合作机构</dd>
+                    <dd>合作导师</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
